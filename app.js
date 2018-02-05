@@ -1,3 +1,4 @@
+/* eslint-disable no-alert, no-console, no-undef */
 pp = prettyP;
 // pp('Wasn\'t that nice');
 // pp(50 + " años");
@@ -305,17 +306,43 @@ console.log(global instanceof Array);
 
 var mycallableObj = {
     n : "callable"
-}
+};
 
-mycallableObj.prototype.n = {};
-mycallableObj.prototype.n.call = function(thisX)
-{
-    return thisX.n;
-}
+// mycallableObj.prototype.n = {};
+// mycallableObj.prototype.n.call = function(thisX)
+// {
+//     return thisX.n;
+// };
 
-mycallableObj.call(mycallableObj);
+//mycallableObj.call(mycallableObj);
 
 console.log(typeof mycallableObj);
+
+var strLetra = String.fromCharCode(65);
+console.log(strLetra);
+
+var numA = "A".charCodeAt(0);
+console.log(numA);
+
+
+var nameRaw = "Jonas";
+var nameObj = new String(nameRaw);
+console.log(nameRaw == nameObj);
+console.log(nameRaw === nameObj);
+
+var nameLegth = ("Jonas").length;
+console.log(nameLegth);
+
+var oName = new String("Jonas");
+console.log("My name has " + oName.length + " characters");
+
+var oAge = new Number(50);
+console.log("Mi age is " + oAge);
+console.log(oAge.toExponential(0));
+console.log((50).toExponential(0));
+
+console.log(typeof String);
+
 
 
 
