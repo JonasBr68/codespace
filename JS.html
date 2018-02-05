@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+
+</head>
+
+<body>
+    <script type="text/javascript">
+        var global = window;
+        whereAmI = "Hello, am on the global object";
+        var andMe = "Im here";
+        console.log(global.whereAmI);
+
+        function show() {
+            console.log(andMe);
+            console.log(global.andMe);
+        }
+
+        show();
+    </script>
+</body>
+
+</html>
