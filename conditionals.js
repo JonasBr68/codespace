@@ -2,11 +2,9 @@
 
 
 var myAge = 50;
-
 if(myAge < 50)
 {
     console.log("Joven");
 } else {
-    console.log("Viejo");
-    
+    console.log("Viejo");    
 }
