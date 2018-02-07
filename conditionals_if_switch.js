@@ -1,15 +1,5 @@
 /* eslint-disable*/
 
-
-// var myAge = 50;
-// if (myAge < 50) {
-//     console.log("Joven");
-// } else {
-//     console.log("Viejo");
-// }
-
-
-
 function getColorStringFromCode(colorNumber) {
     if (colorNumber == 0) //Numeric code for Red
     {

@@ -1,351 +1,360 @@
 /* eslint-disable no-alert, no-console, no-undef */
-pp = prettyP;
-// pp('Wasn\'t that nice');
-// pp(50 + " años");
+// pp = prettyP;
+// // pp('Wasn\'t that nice');
+// // pp(50 + " años");
 
-// function add(a, b)
-// {
-//     return a + b;
+// // function add(a, b)
+// // {
+// //     return a + b;
+// // }
+
+// // var nothing;
+// // pp(typeof(nothing));
+// // pp(nothing == undefined);
+// // pp(nothing === undefined);
+// // pp(-3.14 / 0);
+// // pp(typeof(typeof(null)));
+// // pp(typeof(undefined));
+// // pp(typeof(null));
+// // pp(typeof(NaN));
+// // pp(8 * null);
+// // pp(true == 1);
+
+// //#region stuff to hide
+
+// //Hide this
+
+// //#endregion
+
+// //region
+// // Hide this too
+// //endregion
+
+// //https://github.com/Microsoft/TypeScript/wiki/JsDoc-support-in-JavaScript
+// //http://usejsdoc.org/
+// /**
+//  * Pretty prints our output to console.log with the data type in square brackets
+//  * @param {*} printThis - printThis: The thing you want pretty printed with type
+//  */
+// function prettyP(printThis) {
+//     var msg = "";
+//     if (typeof (printThis) == typeof ("")) {
+//         msg = '"' + printThis + '"';
+//     } else {
+//         if (typeof printThis == typeof undefined) {
+//             msg = printThis;
+//         } else {
+//             msg = printThis.toString();
+//         }
+//     }
+//     var separation = getRequiredTabs(msg, 40);
+//     msg += " [" + typeof (printThis) + "] ";
+//     console.log(msg);
+//     return this;
 // }
 
-// var nothing;
-// pp(typeof(nothing));
-// pp(nothing == undefined);
-// pp(nothing === undefined);
-// pp(-3.14 / 0);
-// pp(typeof(typeof(null)));
-// pp(typeof(undefined));
-// pp(typeof(null));
-// pp(typeof(NaN));
-// pp(8 * null);
-// pp(true == 1);
+// prettyP.prototype.toString = function () {
+//     return "prettyPrettyPlease";
+// }
 
-//#region stuff to hide
 
-//Hide this
+// PP = prettyP;
+// function getRequiredTabs(msg, desiredTabPosition) {
+//     return "\t";
+// }
 
-//#endregion
-
-//region
-// Hide this too
-//endregion
-
-//https://github.com/Microsoft/TypeScript/wiki/JsDoc-support-in-JavaScript
-//http://usejsdoc.org/
-/**
- * Pretty prints our output to console.log with the data type in square brackets
- * @param {*} printThis - printThis: The thing you want pretty printed with type
- */
-function prettyP(printThis) {
-    var msg = "";
-    if (typeof (printThis) == typeof ("")) {
-        msg = '"' + printThis + '"';
-    } else {
-        if (typeof printThis == typeof undefined) {
-            msg = printThis;
-        } else {
-            msg = printThis.toString();
-        }
-    }
-    var separation = getRequiredTabs(msg, 40);
-    msg += " [" + typeof (printThis) + "] ";
-    console.log(msg);
-    return this;
-}
+// myFileName = __filename;
+// var myHiddenName = myFileName;
+// module.exports.pp = pp;
 
-prettyP.prototype.toString = function () {
-    return "prettyPrettyPlease";
-}
+// var str = "str";
+// var num = 123;
+// var bo = true;
+// var nu = null;
+// var undef = undefined;
+// var mo = {}; //Object literal
 
+// mo.doStuff = function (msg) {
+//     console.log(msg);
+// }
 
-PP = prettyP;
-function getRequiredTabs(msg, desiredTabPosition) {
-    return "\t";
-}
+// mo.doStuff("Hello world");
 
-myFileName = __filename;
-var myHiddenName = myFileName;
-module.exports.pp = pp;
+// mo["doStuff"]("Hi Again");
 
-var str = "str";
-var num = 123;
-var bo = true;
-var nu = null;
-var undef = undefined;
-var mo = {}; //Object literal
+// mo["send"] = mo.doStuff;
 
-mo.doStuff = function (msg) {
-    console.log(msg);
-}
+// mo.send("Weird");
 
-mo.doStuff("Hello world");
+// var send = mo["doStuff"];
 
-mo["doStuff"]("Hi Again");
+// send("This too");
 
-mo["send"] = mo.doStuff;
+// var abuelo = {};
+// abuelo.child = {};
+// abuelo.child.grandchild = { name: "Bobby" };
 
-mo.send("Weird");
+// console.log(abuelo.child.grandchild.name);
 
-var send = mo["doStuff"];
+// console.log(abuelo["child"]["grandchild"].name);
 
-send("This too");
+// abuelo.children = [];
 
-var abuelo = {};
-abuelo.child = {};
-abuelo.child.grandchild = { name: "Bobby" };
+// abuelo.children.push("Emma");
+// abuelo.children.push("Johnny");
 
-console.log(abuelo.child.grandchild.name);
+// abuelo.children = [...abuelo.children, "Joselito"];
 
-console.log(abuelo["child"]["grandchild"].name);
+// for (let index = 0; index < abuelo.children.length; index++) {
+//     const element = abuelo.children[index];
+//     console.log(element);
+// }
 
-abuelo.children = [];
+// // console.log(Object.getOwnPropertyNames(null));
+// // console.log(Object.getOwnPropertyNames(undefined));
 
-abuelo.children.push("Emma");
-abuelo.children.push("Johnny");
 
-abuelo.children = [...abuelo.children, "Joselito"];
+// var o = new prettyP();
+// console.log(typeof o);
+// console.log(o.constructor.name);
 
-for (let index = 0; index < abuelo.children.length; index++) {
-    const element = abuelo.children[index];
-    console.log(element);
-}
+// var p = new PP();
+// console.log(p.constructor.name);
 
-// console.log(Object.getOwnPropertyNames(null));
-// console.log(Object.getOwnPropertyNames(undefined));
+// var XX = function () {
+//     console.log("Hello Im XX");
+// }
+// var xx = new XX();
+// console.log(xx.constructor.name);
 
+// console.log(typeof prettyP);
+// console.log(prettyP.constructor.name);
 
-var o = new prettyP();
-console.log(typeof o);
-console.log(o.constructor.name);
+// console.log(Math.constructor.name);
 
-var p = new PP();
-console.log(p.constructor.name);
+// console.log(typeof Math);
 
-var XX = function () {
-    console.log("Hello Im XX");
-}
-var xx = new XX();
-console.log(xx.constructor.name);
 
-console.log(typeof prettyP);
-console.log(prettyP.constructor.name);
+// var m = Math;
+// console.log(m.prototype);
 
-console.log(Math.constructor.name);
+// console.log(o);
+// pp(o);
+// console.log(o.toString());
+// console.log(prettyP.prototype.toString.call(o));
 
-console.log(typeof Math);
 
+// var processed = [];
+// console.log(JSON.stringify(p, jsonFilter));
 
-var m = Math;
-console.log(m.prototype);
 
-console.log(o);
-pp(o);
-console.log(o.toString());
-console.log(prettyP.prototype.toString.call(o));
+// function jsonFilter(key, value) {
+//     if (undefined != processed.find(function (item) {
+//         return (item === value);
+//     })) {
+//         return undefined; //Already did this one
+//     }
+//     processed.push(this); //Remember it
+//     return value;
 
+// }
 
-var processed = [];
-console.log(JSON.stringify(p, jsonFilter));
+// var boo = new Boolean("true");
+// console.log(boo == true);
+// console.log(boo === true);
+// console.log('"' + boo + '"');
+// console.log(0xFFFFFFFF & boo);
+// console.log((true && "Hello"));
 
+// console.log(0xFFFFFFFF & !!"Hello");
+// console.log(0xFFFFFFFF & "Hello");
+// console.log();
 
-function jsonFilter(key, value) {
-    if (undefined != processed.find(function (item) {
-        return (item === value);
-    })) {
-        return undefined; //Already did this one
-    }
-    processed.push(this); //Remember it
-    return value;
 
-}
+// console.log(boo instanceof Boolean);
+// console.log(typeof boolean);
 
-var boo = new Boolean("true");
-console.log(boo == true);
-console.log(boo === true);
-console.log('"' + boo + '"');
-console.log(0xFFFFFFFF & boo);
-console.log((true && "Hello"));
+// //console.log(boo instanceof boolean);
+// //console.log(true instanceof boolean);
 
-console.log(0xFFFFFFFF & !!"Hello");
-console.log(0xFFFFFFFF & "Hello");
-console.log();
 
 
-console.log(boo instanceof Boolean);
-console.log(typeof boolean);
 
-//console.log(boo instanceof boolean);
-//console.log(true instanceof boolean);
+// var mock = {};
 
+// mock[0] = 1;
+// mock[1] = 2;
+// mock.current = 0;
 
+// mock[Symbol.iterator] = function () {
+//     return {
+//         next: function () {
+//             if (this.owner[this.current] == undefined)
+//                 return { done: true }
 
+//             return { done: false, value: this.owner[this.current++] }
+//         },
+//         current : 0,
+//         owner : this
+//     }
+// }
 
-var mock = {};
+// var mock = [...mock, 3, 4];
 
-mock[0] = 1;
-mock[1] = 2;
-mock.current = 0;
+// console.log(mock.length);
 
-mock[Symbol.iterator] = function () {
-    return {
-        next: function () {
-            if (this.owner[this.current] == undefined)
-                return { done: true }
-            
-            return { done: false, value: this.owner[this.current++] }
-        },
-        current : 0,
-        owner : this
-    }
-}
 
-var mock = [...mock, 3, 4];
-
-console.log(mock.length);
-
-
-var mock = {
-    get length()
-    {
-        return Object.getOwnPropertyNames(this).length.valueOf() - 1;
-    },
-    1 : "Second position"
-};
-
-
-mock[0] = 1;
-mock[2] = 3;
-
-console.log(mock);
-
-console.log(mock.length);
-
-console.log('Real array');
-
-for (let index = 0; index < mock.length; index++) {
-    const element = mock[index];
-    console.log(element);
-    
-}
-
-console.log('Mock array');
-
-for (let index = 0; index < mock.length; index++) {
-    const element = mock[index];
-    console.log(element);
-    
-}
-
-
-console.log((3).constructor.name);
-console.log(typeof (3));
-console.log(typeof 3);
-console.log(3 instanceof Number);
-console.log((3) instanceof Number);
-
-
-var obj1 = new Object();
-console.log(typeof obj1);
-
-var func2 = new Function();
-console.log(typeof func2);
-
-var strO = new String();
-console.log(typeof strO);
-console.log(strO instanceof String);
-console.log(strO instanceof Function);
-console.log(strO instanceof Object);
-
-console.log(func2 instanceof Object);
-console.log(func2 instanceof Function);
-
-var ppO = new prettyP();
-console.log(typeof ppO);
-console.log(ppO instanceof Object);
-console.log(ppO instanceof Function);
-console.log(ppO instanceof prettyP);
-console.log(ppO.constructor.name);
-
-console.log(prettyP.constructor.name);
-
-
-
-console.log(typeof prettyP);
-console.log(prettyP instanceof Object);
-console.log(prettyP instanceof Function);
-console.log(prettyP instanceof prettyP);
-
-prettyP = undefined;
-console.log(Function.prototype.toString.call(ppO.constructor));
-
-
-
-function simple()
-{
-    return "simple";
-}
-
-simple2 = function simple3()
-{
-    return "simple3";
-}
-console.log(simple);
-console.log(simple.name);
-console.log(simple2);
-console.log(simple2.name);
-
-global.myCoolName = 'Cool';
-
-console.log(myCoolName);
-
-console.log(typeof global);
-console.log(global);
-
-console.log(global instanceof Array);
-
-
-var mycallableObj = {
-    n : "callable"
-};
-
-// mycallableObj.prototype.n = {};
-// mycallableObj.prototype.n.call = function(thisX)
-// {
-//     return thisX.n;
+// var mock = {
+//     get length()
+//     {
+//         return Object.getOwnPropertyNames(this).length.valueOf() - 1;
+//     },
+//     1 : "Second position"
 // };
 
-//mycallableObj.call(mycallableObj);
 
-console.log(typeof mycallableObj);
+// mock[0] = 1;
+// mock[2] = 3;
 
-var strLetra = String.fromCharCode(65);
-console.log(strLetra);
+// console.log(mock);
 
-var numA = "A".charCodeAt(0);
-console.log(numA);
+// console.log(mock.length);
 
+// console.log('Real array');
 
-var nameRaw = "Jonas";
-var nameObj = new String(nameRaw);
-console.log(nameRaw == nameObj);
-console.log(nameRaw === nameObj);
+// for (let index = 0; index < mock.length; index++) {
+//     const element = mock[index];
+//     console.log(element);
 
-var nameLegth = ("Jonas").length;
-console.log(nameLegth);
+// }
 
-var oName = new String("Jonas");
-console.log("My name has " + oName.length + " characters");
+// console.log('Mock array');
 
-var oAge = new Number(50);
-console.log("Mi age is " + oAge);
-console.log(oAge.toExponential(0));
-console.log((50).toExponential(0));
+// for (let index = 0; index < mock.length; index++) {
+//     const element = mock[index];
+//     console.log(element);
 
-console.log(typeof String);
+// }
 
 
+// console.log((3).constructor.name);
+// console.log(typeof (3));
+// console.log(typeof 3);
+// console.log(3 instanceof Number);
+// console.log((3) instanceof Number);
 
 
+// var obj1 = new Object();
+// console.log(typeof obj1);
+
+// var func2 = new Function();
+// console.log(typeof func2);
+
+// var strO = new String();
+// console.log(typeof strO);
+// console.log(strO instanceof String);
+// console.log(strO instanceof Function);
+// console.log(strO instanceof Object);
+
+// console.log(func2 instanceof Object);
+// console.log(func2 instanceof Function);
+
+// var ppO = new prettyP();
+// console.log(typeof ppO);
+// console.log(ppO instanceof Object);
+// console.log(ppO instanceof Function);
+// console.log(ppO instanceof prettyP);
+// console.log(ppO.constructor.name);
+
+// console.log(prettyP.constructor.name);
+
+
+
+// console.log(typeof prettyP);
+// console.log(prettyP instanceof Object);
+// console.log(prettyP instanceof Function);
+// console.log(prettyP instanceof prettyP);
+
+// prettyP = undefined;
+// console.log(Function.prototype.toString.call(ppO.constructor));
+
+
+
+// function simple()
+// {
+//     return "simple";
+// }
+
+// simple2 = function simple3()
+// {
+//     return "simple3";
+// }
+// console.log(simple);
+// console.log(simple.name);
+// console.log(simple2);
+// console.log(simple2.name);
+
+// global.myCoolName = 'Cool';
+
+// console.log(myCoolName);
+
+// console.log(typeof global);
+// console.log(global);
+
+// console.log(global instanceof Array);
+
+
+// var mycallableObj = {
+//     n : "callable"
+// };
+
+// // mycallableObj.prototype.n = {};
+// // mycallableObj.prototype.n.call = function(thisX)
+// // {
+// //     return thisX.n;
+// // };
+
+// //mycallableObj.call(mycallableObj);
+
+// console.log(typeof mycallableObj);
+
+// var strLetra = String.fromCharCode(65);
+// console.log(strLetra);
+
+// var numA = "A".charCodeAt(0);
+// console.log(numA);
+
+
+// var nameRaw = "Jonas";
+// var nameObj = new String(nameRaw);
+// console.log(nameRaw == nameObj);
+// console.log(nameRaw === nameObj);
+
+// var nameLegth = ("Jonas").length;
+// console.log(nameLegth);
+
+// var oName = new String("Jonas");
+// console.log("My name has " + oName.length + " characters");
+
+// var oAge = new Number(50);
+// console.log("Mi age is " + oAge);
+// console.log(oAge.toExponential(0));
+// console.log((50).toExponential(0));
+
+// console.log(typeof String);
+
+
+var myObj = {};
+
+myObj["Jonas Brandel"] = 50;
+
+console.log(myObj["Jonas Brandel"]);
+
+var myList = {};
+myList[0] = "First";
+myList[1] = "Second";
+myList[2] = "Third";
+myList[3] = "Fourth";
 
 
 
