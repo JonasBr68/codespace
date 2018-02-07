@@ -16,8 +16,24 @@ myList[numberOfItems++] = "Third";
 myList[numberOfItems++] = "Fourth";
 
 var pos = 0;
-while(pos < numberOfItems)
-{
+while (pos < numberOfItems) {
     console.log(myList[pos]);
     pos++;
+}
+
+var myArray = ["First", "Second", "Third", "Fourth"];
+pos = 0;
+
+while (pos < myArray.length) {
+    console.log(myArray[pos]);
+    pos++;
+}
+
+var hello = "Hello";
+var firstLetter = hello[0];
+console.log(firstLetter); // H
+pos = 0;
+while(pos < hello.length)
+{
+    console.log(hello[pos++]);
 }
