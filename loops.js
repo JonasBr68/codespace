@@ -1,10 +1,23 @@
 /* eslint-disable no-alert, no-console, no-undef */
 
-var counter = 0, sum = 0;
 
-while (counter < 10) {
+var PacoPos = 0;
+var names = ["Jonas", "Jose", "Paco", "Josema"];
+while (PacoPos < names.length) {
 
-    sum += counter++;
+    if (names[PacoPos] == "Paco")
+        break;
+
+    PacoPos++;
+}
+console.log("Paco esta en posición " + PacoPos);
+
+process.exit(0);
+var pos = 0, sum = 0;
+
+while (pos < 10) {
+
+    sum += pos++;
 }
 console.log(sum);
 
@@ -15,7 +28,7 @@ myList[numberOfItems++] = "Second";
 myList[numberOfItems++] = "Third";
 myList[numberOfItems++] = "Fourth";
 
-var pos = 0;
+pos = 0;
 while (pos < numberOfItems) {
     console.log(myList[pos]);
     pos++;
@@ -33,13 +46,12 @@ var hello = "Hello";
 var firstLetter = hello[0];
 console.log(firstLetter); // H
 pos = 0;
-while(pos < hello.length)
-{
+while (pos < hello.length) {
     console.log(hello[pos++]);
 }
 
 
-var arr = [1,2,3,4,5,6,7,8,9,10];
+var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 for (let index = 0; index < arr.length; index++) {
     const element = arr[index];
     console.log(element);
