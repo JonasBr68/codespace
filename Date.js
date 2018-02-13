@@ -15,16 +15,20 @@ console.log(current);
 console.log("Empezar la espera...");
 wait(5);
 console.log("Termino la espera...");
-wait(1);
-console.clear();
+// wait(1);
+// console.clear();
+
 
 function wait(X)
 {
+    //var vueltas = 0;
     var now = Date.now();
     const limit = now + (X * 1000);
     while(now < limit)
     {
         now = Date.now();
+        //vueltas++;
     }
+    //console.log(vueltas + " vueltas");
 }
 
