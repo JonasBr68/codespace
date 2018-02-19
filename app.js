@@ -1,4 +1,4 @@
-/* eslint-disable no-alert, no-console, no-undef */
+/* eslint-disable no-alert, no-console, no-unused-vars */
 // pp = prettyP;
 // // pp('Wasn\'t that nice');
 // // pp(50 + " años");
@@ -343,19 +343,165 @@
 
 // console.log(typeof String);
 
+function getPosition() {
+    return { x: 0, y: 0 };
+}
 
-var myObj = {};
+function getSize() {
+    return { width: 10, height: 10 };
+}
 
-myObj["Jonas Brandel"] = 50;
+function drawHorizontalLine(line) {
+    console.log("\tDrawing horizontal line");
+}
 
-console.log(myObj["Jonas Brandel"]);
+function drawVerticalLine(line) {
+    console.log("\tDrawing vertical line");
+}
 
-var myList = {};
-myList[0] = "First";
-myList[1] = "Second";
-myList[2] = "Third";
-myList[3] = "Fourth";
+function paintRectangle(position, size) {
+    var topLine = { x: position.x, y: position.y, length: size.width };
+    var bottomLine = {
+        x: position.x,
+        y: position.y + size.height,
+        length: size.width
+    };
+
+    var leftLine = { x: position.x, y: position.y, length: size.height };
+    var rightLine = {
+        x: position.x + size.width,
+        y: position.y,
+        length: size.height
+    };
+    drawHorizontalLine(topLine);
+    drawHorizontalLine(bottomLine);
+    drawVerticalLine(leftLine);
+    drawVerticalLine(rightLine);
+}
 
 
+var positionOfRectangle = getPosition(); //Tómalo como dado
+var sizeOfRectangle = getSize();         //Tómalo como dado
+
+paintRectangle(positionOfRectangle, sizeOfRectangle);
 
 
+//Variable shadowing and scope 
+
+var var1 = "Im global";
+
+var var2 = "Also global";
+
+function myFunc(var1)
+{
+    console.log(var1);
+}
+myFunc();
+
+function myFunc2()
+{
+    console.log(var2);
+}
+myFunc2();
+
+function myFunc3()
+{
+    var var1 = "Im in myFunc3";
+    console.log(var1);
+}
+myFunc3();
+
+console.log(var1);
+
+function myFunc4()
+{
+    var1 = "Im in myFunc4";
+    console.log(var1);
+    
+}
+myFunc4();
+console.log(var1);
+
+function myFunc5()
+{
+    var5 = "From myFunc5";
+    console.log(var5);
+    
+}
+myFunc5(); //Move to after log call
+console.log(var5);
+
+console.log(var5);
+
+function danger()
+{
+    console.log("Danger");
+}
+
+danger = function () { console.log("Safe");
+}
+
+danger();
+
+
+class Animal
+{
+    constructor (name)
+    {
+        this.name = name;
+    }
+}
+
+var cat = new Animal("Cat");
+console.log(typeof cat);
+console.log(cat instanceof Animal);
+console.log(cat.__proto__.constructor.name);
+
+console.log(cat.name);
+
+
+function FizzBuzz()
+{
+    for(let num = 1;num<=100;num++)
+    {
+        if(num % 3 == 0 && num % 5 == 0)
+        {
+            console.log("FizzBuzz");
+            
+        } else if(num % 3 == 0)
+        {
+            console.log("Fizz");
+        } else if(num % 5 == 0)
+        {
+            console.log("Buzz");
+            
+        } else{
+            console.log(num);
+            
+        }
+    }
+}
+FizzBuzz();
+
+function chessBoard()
+{
+    const x = 32;
+    const y = 16;
+    let result = "";
+    let oddLine = 1;
+    for(let i = 0;i<x*y;i++)
+    {
+        if((i) % x==0)
+        {
+            //start fresh line
+            result += "\n";
+            oddLine = oddLine ^ 1;
+        }
+        if((i + oddLine) % 2 == 0)
+            result += " ";
+        else
+            result += "█";
+    }
+    return result;
+}
+console.log(chessBoard());
