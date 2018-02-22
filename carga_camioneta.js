@@ -1,5 +1,6 @@
 /* eslint-disable no-alert, no-console, no-undef */
 
+
 var queue = [123, 342, 23, 211, 23, 435, 44, 332, 224, 543, 7];
 
 function howManyRuns(queueOfWeights) {
@@ -19,7 +20,6 @@ function howManyRuns(queueOfWeights) {
     }
     return runsNeeded;
 }
-
 console.log(howManyRuns(queue));
 
 

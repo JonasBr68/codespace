@@ -8,11 +8,11 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "console":"externalTerminal" ,
+            "console": "externalTerminal",
             "program": "${workspaceFolder}/${fileBasenameNoExtension}.js",
             "skipFiles": [
                 "<node_internals>/**"
-              ]
+            ]   
         }
     ]
 }
