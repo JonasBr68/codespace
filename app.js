@@ -1,4 +1,8 @@
 /* eslint-disable no-alert, no-console, no-unused-vars */
+/*eslint-env es6, browser*/
+'use strict';
+
+document.children.item(0).
 // pp = prettyP;
 // // pp('Wasn\'t that nice');
 // // pp(50 + " años");
@@ -343,6 +347,66 @@
 
 // console.log(typeof String);
 
+let wrappedArray = new Proxy([0, 1, 2, 3], {
+    _offset: 0,
+    get: function (obj, prop) {
+        if (prop in obj) {
+            let newPos = +prop + this._offset;
+            return "Item in pos " + newPos + "=" + obj[newPos];
+        }
+    }
+});
+
+class ImmutableArray {
+    constructor(arrIn) {
+        //Object.freeze(arrIn);
+        Object.seal(arrIn);
+        return new Proxy(arrIn, {
+            _offset: 0,
+            _array: arrIn,
+            get: function (obj, prop) {
+                if (prop in this) {
+                    if (!isNaN(prop)) //It's a number
+                    {
+                        let newPos = +prop + this._offset;
+                        return "Item in pos " + newPos + "=" + obj[newPos];
+                    }
+                    else {
+                        var sought = this[prop];
+                        if (sought instanceof Function)
+                            return sought.bind(this);
+                        else if(sought != undefined)
+                            return sought;
+                        else
+                            return obj[prop];
+                    }
+                }
+                else
+                    {
+                        throw `${prop} does not exist`;
+                    }
+            },
+            shift: function () {
+                return this._array[this._offset++];
+            },
+            get length() {
+                return this._array.length - this._offset;
+            }
+        });
+    }
+}
+
+let inmutable = new ImmutableArray([1, 2, 3, 4]);
+let first = inmutable.shift();
+let second = inmutable.shift();
+console.log(inmutable[0]);
+console.log(first + " " + second + " " + inmutable.length); //1 2 2
+
+
+
+//console.log(wrappedArray[0]);
+
+return;
 function getPosition() {
     return { x: 0, y: 0 };
 }
@@ -392,20 +456,17 @@ var var1 = "Im global";
 
 var var2 = "Also global";
 
-function myFunc(var1)
-{
+function myFunc(var1) {
     console.log(var1);
 }
 myFunc();
 
-function myFunc2()
-{
+function myFunc2() {
     console.log(var2);
 }
 myFunc2();
 
-function myFunc3()
-{
+function myFunc3() {
     var var1 = "Im in myFunc3";
     console.log(var1);
 }
@@ -413,41 +474,38 @@ myFunc3();
 
 console.log(var1);
 
-function myFunc4()
-{
+function myFunc4() {
     var1 = "Im in myFunc4";
     console.log(var1);
-    
+
 }
 myFunc4();
 console.log(var1);
 
-function myFunc5()
-{
+function myFunc5() {
     var5 = "From myFunc5";
     console.log(var5);
-    
+
 }
 myFunc5(); //Move to after log call
 console.log(var5);
 
 console.log(var5);
 
-function danger()
-{
+function danger() {
     console.log("Danger");
 }
 
-danger = function () { console.log("Safe");
+danger = function () {
+    console.log("Safe");
 }
 
 danger();
 
 
-class Animal
-{
-    constructor (name)
-    {
+
+class Animal {
+    constructor(name) {
         this.name = name;
     }
 }
@@ -460,44 +518,36 @@ console.log(cat.__proto__.constructor.name);
 console.log(cat.name);
 
 
-function FizzBuzz()
-{
-    for(let num = 1;num<=100;num++)
-    {
-        if(num % 3 == 0 && num % 5 == 0)
-        {
+function FizzBuzz() {
+    for (let num = 1; num <= 100; num++) {
+        if (num % 3 == 0 && num % 5 == 0) {
             console.log("FizzBuzz");
-            
-        } else if(num % 3 == 0)
-        {
+
+        } else if (num % 3 == 0) {
             console.log("Fizz");
-        } else if(num % 5 == 0)
-        {
+        } else if (num % 5 == 0) {
             console.log("Buzz");
-            
-        } else{
+
+        } else {
             console.log(num);
-            
+
         }
     }
 }
 FizzBuzz();
 
-function chessBoard()
-{
+function chessBoard() {
     const x = 32;
     const y = 16;
     let result = "";
     let oddLine = 1;
-    for(let i = 0;i<x*y;i++)
-    {
-        if((i) % x==0)
-        {
+    for (let i = 0; i < x * y; i++) {
+        if ((i) % x == 0) {
             //start fresh line
             result += "\n";
             oddLine = oddLine ^ 1;
         }
-        if((i + oddLine) % 2 == 0)
+        if ((i + oddLine) % 2 == 0)
             result += " ";
         else
             result += "█";

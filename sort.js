@@ -13,10 +13,7 @@ function ASSERT(expr, msg) {
 const toSort = [1, 2, 3, 0, 5, 8, 9, 21, 11, 12, 10];
 Object.freeze(toSort);
 
-//let sortedCorrect = [...toSort].sort((a, b) => { return b - a; });
-
-//console.log("sortedCorrect: \n" + sortedCorrect);
-
+// region mySorting
 function sort(arrToSort) {
     let sortedArray = [];
 
@@ -264,6 +261,55 @@ Node.prototype.push = function (node) {
     current.tail(node);
 };
 
+// endregion
+
+// region Merge Sort
+
+//const toSort = [1, 2, 3, 0, 5, 8, 9, 21, 11, 12, 10];
+
+
+
+function mergeSort(toSort)
+{
+    var toSortArray = [...toSort];
+    if(toSort.length < 2)
+        return toSort;
+    //even sized arrays
+    //Divide in two
+    var left = toSortArray.slice(0, Math.round(toSortArray.length/2));
+    var right = toSortArray.slice(Math.round(toSortArray.length/2));
+    
+    var leftSorted = mergeSort(left);
+    var rightSorted = mergeSort(right);
+
+    var result = merge(leftSorted, rightSorted);
+    return result;
+}
+
+function merge(leftSorted, rightSorted)
+{
+    let merged = [];
+    let leftRemoved = 0;
+    let rightRemoved = 0; 
+    while(leftSorted.length - leftRemoved > 0 && rightSorted.length - rightRemoved > 0)
+    {
+        if(leftSorted[0] <= rightSorted[0])
+            merged.push(leftSorted[leftRemoved++]);
+        else
+            merged.push(rightSorted[rightRemoved++]);
+    }
+    while(leftSorted.length - leftRemoved > 0)
+    {
+        merged.push(leftSorted[leftRemoved++]);
+    }
+    while(rightSorted.length - rightRemoved > 0)
+    {
+        merged.push(rightSorted[rightRemoved++]);
+    }
+    return merged;
+}
+
+// endregion
 
 function rangeArray(start, end) {
     let arr = [];
@@ -299,7 +345,9 @@ function scrambleArray(arrIn) {
     return scrambled;
 }
 
-let range = rangeArray(1, 100000);
+var sortingAlgo = mergeSort;
+
+let range = rangeArray(1, 1000000);
 let randomRange = scrambleArray(range);
 
 //console.log(randomRange);
@@ -310,13 +358,16 @@ let stopJS = Date.now();
 
 console.log("JS took: " + (stopJS - startJS));
 
-let mySorted = sort(randomRange);
+let mySorted = sortingAlgo(randomRange); //In case of jitting
 
 let startMy = Date.now();
-mySorted = sort(randomRange);
+mySorted = sortingAlgo(randomRange);
 let stopMy = Date.now();
 
 console.log("My took: " + (stopMy - startMy));
+
+// var mergeSorted = mergeSort(toSort);
+// console.log(mergeSorted);
 
 
 //console.log("mySorted:\n" + mySorted);

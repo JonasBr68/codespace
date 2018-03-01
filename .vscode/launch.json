@@ -12,6 +12,9 @@
             "program": "${workspaceFolder}/${fileBasenameNoExtension}.js",
             "skipFiles": [
                 "<node_internals>/**"
+            ],
+            "runtimeArgs": [
+                /* "--use-strict", */
             ]   
         }
     ]
